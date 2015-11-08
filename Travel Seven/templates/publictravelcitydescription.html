@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Travel Seven</title>
+
+    <!-- Bootstrap Core CSS -->
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='font-awesome/css/font-awesome.min.css') }}">
+	
+
+    <!-- Plugin CSS -->
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/animate.min.css') }}">
+    
+
+    <!-- Custom CSS -->
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/creative.css') }}">
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/travelseven.css') }}">
+	
+	<!-- weather code starts -->
+		<!-- jQuery -->
+    <script src="{{ url_for('static', filename='js/jquery.js') }}" ></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+    <!-- Plugin JavaScript -->
+	
+    <script src="{{ url_for('static', filename='js/jquery.easing.min.js') }}" ></script>
+    <script src="{{ url_for('static', filename='js/jquery.fittext.js') }}" ></script>
+    <script src="{{ url_for('static', filename='js/wow.min.js') }}"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{{ url_for('static', filename='js/creative.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/jquery.simpleWeather.js') }}"></script>
+	
+		
+	<script>
+		// Docs at http://simpleweatherjs.com
+		$(document).ready(function() {
+		var city_name = $('#city_name').val();
+		
+		  $.simpleWeather({
+			location: city_name,
+			woeid: '',
+			unit: 'f',
+			success: function(weather) {
+			  html = '<h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
+			  html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
+			  html += '<li class="currently">'+weather.currently+'</li>';
+			  html += '<li>'+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</li></ul>';
+		  
+			  $("#weather").html(html);
+			},
+			error: function(error) {
+			  $("#weather").html('<p>'+error+'</p>');
+			}
+		  });
+		});
+		
+	</script>
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/weather.css') }}">
+	<!-- weather code ends -->
+    
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body id="page-top">
+	 <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="{{url_for('showIndex')}}">Travel 7</a>
+            </div>
+			 <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+					<!--need to change log out -->
+					<li>
+                       <h4 class="headerLines" style="font-size: 25px;color:#F7CE32">hi Traveller,</h4>
+                    </li>
+                    <li>
+                        <img src="{{ url_for('static', filename='img/portfolio/noimage.jpg') }}" class="img-responsive" height="50" width="50">
+                    </li>
+					<li>
+                        <a class="page-scroll" href="{{url_for('showLogin')}}">Login</a>
+                    </li>
+					<li>
+                        <a class="page-scroll" href="{{url_for('showIndex')}}">Home</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+
+            
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+	<header>
+        <div class="header-content">
+            <div class="header-content-inner" >
+			
+			<div style="margin-top: 2cm;">
+			</br></br></br></br></br><br>
+			<h4 class="headerLines headerColor cityFontSize">{{ city.name }} in {{ city.category  }} Category<h4>
+				
+			<!--weather code starts -->
+			<input type="hidden" id="city_name" name="country" value="{{ city.name }}">
+			<!--weather code ends -->
+			
+			<table class="table"> 
+					<thead>
+						  <tr>
+							<th class="cityColumnHeader " ><h3 class="headerLines"></h3></th>
+							<th class="cityColumnHeader">
+								
+							</th>
+							<th class="cityColumnHeader headerLines">
+								<a href = "{{url_for('showCityJSON', city_id = city.id)}}" target="_blank" >
+										get JSON CITY description
+								</a>	
+							</th>
+						  </tr>
+					</thead>
+					<tbody>
+					{% if items !=[] %}	
+						{% for i in items %}
+						<tr>
+							<td><label class="headerLines newCityLabelColor">Image</label></td>
+							<td align="center">
+								{% if i.place_pic %}	
+									<img src='{{i.place_pic}}' height="100" width="142" onError="this.onerror=null;this.src='{{ url_for('static', filename='img/portfolio/noimage.jpg') }}';" >
+								{% else %}
+									<img src="{{ url_for('static', filename='img/portfolio/noimage.jpg') }}" height="100" width="142" class="img-responsive" alt="">
+								{% endif %}
+							</td>
+							</td></td>
+						</tr>
+						
+						<tr>
+							<td><label class="headerLines newCityLabelColor">Best Season</label></td>
+							<td>{{i.bestseason}}</td>
+							</td></td>
+						</tr>
+						
+						<tr>
+							<td><label class="headerLines newCityLabelColor">Description</label></td>
+							<td>{{i.name}}</td>
+							</td></td>
+						</tr>
+						<tr>
+							<td><label class="headerLines newCityLabelColor">Current Weather</label></td>
+							<td><!--weather code starts -->
+								<div id="weather"></div>
+								<!--weather code starts -->
+								
+							</td>
+						</tr>
+						{% endfor %}
+					{% endif %}
+					</tbody>
+			</table>
+			</div>
+			</div>
+        </div>
+    </header>
+
+</body>
+
+</html>

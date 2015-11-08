@@ -1,0 +1,18 @@
+Hi @prakash_149980138,
+
+Sorry you have to go through this. I would suggest to check if you have sqlite3 installed on your machine. Run the following command in your terminal:
+sqlite3
+
+If you get -bash: sqlite: command not found that means you need to install it. Run the following command to install it:
+
+sudo apt-get install sqlite3
+
+Hope this will resolve your issue
+Good luck :+1:
+
+Shawn ---
+
+foolow below steps
+
+sqlite3
+.open "databasename.db"

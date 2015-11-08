@@ -1,0 +1,7 @@
+Travle Seven
+
+For Gmail
+
+client id - 6674467586-qe8h3h7afdstdbkjs99qfcd1gddnjf4h.apps.googleusercontent.com
+
+client secret - H8nu6bflqpafD6Iz_e9z6-KK

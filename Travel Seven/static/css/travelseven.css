@@ -1,0 +1,43 @@
+/*!
+ * Start Bootstrap - Creative Bootstrap Theme (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+ .headerLines{
+	font-family: cursive;
+	
+ }
+ 
+ .headerColor{
+	color:#337AB7;
+ }
+ 
+ .cityFontSize{
+	font-size: 65px;
+ }
+ 
+ .cityColumnHeader{
+  text-align:center;
+ }
+ 
+ .newCityLabelColor{
+	color:#f05f40;
+ }
+ 
+  .newCityFieldColor{
+	color:black;
+ }
+ 
+ .flash {
+	background-color: #98FB98;
+	width:100%;
+	text-decoration: none;
+
+}
+
+.flash li {
+	list-style-type: none;
+	text-align: center;
+
+}
