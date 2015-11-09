@@ -124,6 +124,9 @@ newcity.html
 Link :-
 Provide name,description ,best season and image link(optional)
 
+main.html
+contains the common html code which is inherited in the rest of the templates to avoid
+repetition of code.
 editcitydescription/deletecitydescription .html
 Link :-
 either edit or delete the place
