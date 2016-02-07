@@ -1,4 +1,4 @@
-P3:Item Catalog  - Travel Seven
+                        P3:Item Catalog  - Travel Seven
 				   -------------
 
 1)What is it?
@@ -44,8 +44,6 @@ SNO	 Table			Columns                  Primary Key	    Foreign key		    Descripti
                  city_id,user_id                                  city_id(CITY)
 
 -------------------------------------------------------------------------------------------------------------
-
-
 
 Installation
 ------------
