@@ -7,12 +7,10 @@ A simple jQuery plugin to display current weather data for any location and does
 ```shell
 bower install simpleWeather
 ```
-
 **[Component(1)](http://component.io/)**
 ```shell
 component install monkeecreate/jquery.simpleWeather
 ```
-
 **[CDNJS](http://cdnjs.com/libraries/jquery.simpleWeather/)**
 ```html
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.0.2/jquery.simpleWeather.min.js"></script>
