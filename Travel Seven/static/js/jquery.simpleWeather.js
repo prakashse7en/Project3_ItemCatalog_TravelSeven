@@ -23,8 +23,8 @@
       var now = new Date();
       var weatherUrl = 'https://query.yahooapis.com/v1/public/yql?format=json&rnd='+now.getFullYear()+now.getMonth()+now.getDay()+now.getHours()+'&diagnostics=true&callback=?&q=';
       if(options.location !== '') {
-        weatherUrl += 'select * from weather.forecast where woeid in (select woeid from geo.placefinder where text="'+options.location+'" and gflags="R" limit 1) and u="'+options.unit+'"';
-      } else if(options.woeid !== '') {
+		weatherUrl += 'select * from weather.forecast where woeid in (select woeid from geo.places where text="' + options.location + '" limit 1) and u="'+options.unit+'"';
+	} else if(options.woeid !== '') {
         weatherUrl += 'select * from weather.forecast where woeid='+options.woeid+' and u="'+options.unit+'"';
       } else {
         options.error({message: "Could not retrieve weather due to an invalid location."});
