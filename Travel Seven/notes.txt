@@ -16,3 +16,5 @@ foolow below steps
 
 sqlite3
 .open "databasename.db"
+
+added new line
